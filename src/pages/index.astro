@@ -7,11 +7,11 @@ import Layout from '../layouts/Layout.astro';
     <!-- TOP NAV / HERO -->
     <header class="nav">
       <div class="nav__left">
+        <!-- WICHTIG: kein Zeilenumbruch im src -->
         <img
-          class="logo logo--big"
+          class="logo"
           src="/images/the-repair-scanner-logo-transparent-2x.png"
           alt="The Repair Scanner – powered by CURA"
-          loading="eager"
         />
       </div>
 
@@ -40,9 +40,9 @@ import Layout from '../layouts/Layout.astro';
           </h1>
 
           <p class="lead">
-            The Repair Scanner hilft Privatpersonen, Hausverwaltungen und Organisationen, Schäden schnell zu erfassen –
-            mit einer klaren Ampel-Priorisierung (grün/gelb/rot) und den passenden nächsten Schritten:
-            DIY-Materialliste, Online-Beratung oder Übergabe an Fachbetrieb/Versicherung.
+            The Repair Scanner unterstützt Privatpersonen, Hausverwaltungen und Organisationen dabei,
+            Schäden schnell zu erfassen – inklusive Ampel-Priorisierung (grün/gelb/rot) und den passenden nächsten
+            Schritten: Materialliste, Beratung oder Übergabe an einen Fachbetrieb.
           </p>
 
           <div class="hero__cta">
@@ -57,83 +57,55 @@ import Layout from '../layouts/Layout.astro';
           </ul>
 
           <p class="note">
-            Hinweis: Phase-1-MVP liefert eine stabile Basis (Upload statt Live-Scan), damit Pilotpartner schnell testen können.
+            Hinweis: Phase-1-MVP liefert eine stabile Basis (Foto/Upload statt Live-Scan), damit Pilotpartner schnell testen können.
           </p>
         </div>
 
         <div class="hero__visual">
+          <!-- Window-Mockup: NUR Handybild, kein Text rechts (steht im Bild) -->
           <div class="window">
             <div class="window__top">
               <span class="dot"></span><span class="dot"></span><span class="dot"></span>
               <span class="window__title">Vorschau • Web-MVP (Phase 1)</span>
-              <span class="window__chip">Upload</span>
+              <span class="window__chip">Foto-Upload</span>
             </div>
 
-            <div class="window__body">
-              <div class="window__left">
+            <div class="window__body window__body--single">
+              <div class="window__left window__left--single">
                 <div class="window__brand">The Repair Scanner</div>
-
-                <div class="window__placeholder">
-                  <img class="window__img" src="/images/1000145843.png" alt="App Vorschau" loading="lazy" />
-                  <div class="window__overlay">
-                    <div class="window__overlayTitle">Beispiel-Analyse (Pilot)</div>
-                    <div class="window__overlayText">Upload → KI-Auswertung → Ampel → nächster Schritt</div>
-                  </div>
-                </div>
-
-                <div class="window__caption">
-                  In Phase 1: Klassifikation + Risiko-Ampel. In Phase 2: Detektion (Bounding Boxes) & Ausbau.
-                </div>
-              </div>
-
-              <div class="window__right">
-                <div class="badge badge--red">Priorisierung: Rot (hoch)</div>
-
-                <div class="cardline"><span>Klasse:</span><b>Elektrik / Sicherheit</b></div>
-                <div class="cardline"><span>Konfidenz:</span><b>0.86</b></div>
-                <div class="cardline"><span>Empfehlung:</span><b>Fachbetrieb</b></div>
-
-                <div class="actions">
-                  <button class="mini" type="button">Online-Beratung</button>
-                  <button class="mini" type="button">Fachbetrieb</button>
-                  <button class="mini" type="button">Versicherung</button>
+                <div class="window__placeholder window__placeholder--img">
+                  <!-- NEUES BILD -->
+                  <img class="window__img" src="/images/1000145878.png" alt="App-Vorschau (Beispiel)" />
                 </div>
               </div>
             </div>
           </div>
 
           <div class="mini-metrics">
-            <div class="metric"><b>1</b><span>Upload statt lange Recherche</span></div>
-            <div class="metric"><b>Ampel</b><span>klare Dringlichkeit</span></div>
-            <div class="metric"><b>3</b><span>Wege: DIY, Beratung, Übergabe</span></div>
+            <div class="metric"><b>1</b><span>Foto/Upload</span></div>
+            <div class="metric"><b>Ampel</b><span>klare Priorität</span></div>
+            <div class="metric"><b>3</b><span>Handlungswege</span></div>
             <div class="metric"><b>Dashboard</b><span>für Teams & Organisationen</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROBLEM + ZAHLEN (ohne 10–20 Mrd. €) -->
+    <!-- PROBLEM + ZAHLEN -->
     <section class="section section--tight" id="vorteile">
       <div class="container">
         <h2>Das Problem</h2>
         <p class="muted">
           Schäden werden zu spät erkannt, falsch priorisiert oder falsch adressiert. Das kostet Zeit, Geld – und im schlimmsten Fall Sicherheit.
-          Gleichzeitig fehlt Fachpersonal, und viele Fälle wären mit der richtigen Anleitung schneller lösbar.
+          Gleichzeitig fehlt Fachpersonal, und viele Fälle wären mit der richtigen Anleitung schnell lösbar.
         </p>
 
-        <div class="problemGrid">
-          <div class="problemCard">
-            <h3>Zu viele Rückfragen</h3>
-            <p class="muted">Unklare Fotos, fehlende Angaben und lange Abstimmungen verzögern Entscheidungen.</p>
+        <div class="impact">
+          <h3>Zu späte oder ungelöste Schäden</h3>
+          <div class="impact__number">
+            <span class="n">10–20</span><span class="u">Mrd. €</span><span class="s">/ Jahr</span>
           </div>
-          <div class="problemCard">
-            <h3>Falsche Priorisierung</h3>
-            <p class="muted">Bagatellen werden zu wichtig – echte Risiken werden zu spät behandelt.</p>
-          </div>
-          <div class="problemCard">
-            <h3>Unnötige Einsätze</h3>
-            <p class="muted">Fehlfahrten und doppelte Vor-Ort-Termine entstehen, weil Informationen fehlen.</p>
-          </div>
+          <p class="muted">Orientierungswert für Folgekosten durch Verzögerungen, Fehlentscheidungen und Wiederholarbeiten.</p>
         </div>
 
         <!-- 4 Zielgruppen-Karten mit BILD OHNE TEXT + HTML-Overlay -->
@@ -143,8 +115,8 @@ import Layout from '../layouts/Layout.astro';
             <div class="imgcard__overlay">
               <h4>Eigentümer</h4>
               <ul>
-                <li>Schnelle Klarheit statt stundenlanger Recherche</li>
-                <li>DIY-Materialliste oder klare Empfehlung</li>
+                <li>Schnelle Klarheit statt endloser Recherche</li>
+                <li>Materialliste oder Empfehlung für einen Fachbetrieb</li>
               </ul>
               <a class="btn btn--small btn--ghost" href="#pilot">Jetzt testen</a>
             </div>
@@ -155,7 +127,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="imgcard__overlay">
               <h4>Hausverwaltungen</h4>
               <ul>
-                <li>Strukturierte Schadensmeldungen im Team</li>
+                <li>Strukturierte Meldungen statt Chaos im Postfach</li>
                 <li>Standardisierte Übergabe an Dienstleister</li>
               </ul>
               <a class="btn btn--small btn--ghost" href="#pilot">Jetzt testen</a>
@@ -168,9 +140,9 @@ import Layout from '../layouts/Layout.astro';
               <h4>Handwerk</h4>
               <ul>
                 <li>Vorqualifizierte Fälle statt Blindfahrten</li>
-                <li>Weniger Rückfragen, schnellere Entscheidung</li>
+                <li>Bessere Infos vor dem Termin</li>
               </ul>
-              <a class="btn btn--small btn--ghost" href="#pilot">Pilotprojekt anfragen</a>
+              <a class="btn btn--small btn--ghost" href="#pilot">Pilot anfragen</a>
             </div>
           </article>
 
@@ -180,9 +152,9 @@ import Layout from '../layouts/Layout.astro';
               <h4>Bevölkerungsschutz</h4>
               <ul>
                 <li>Priorisierung sicherheitskritischer Lagen</li>
-                <li>Dokumentation & schnelle Übergabe</li>
+                <li>Dokumentation & Übergabe</li>
               </ul>
-              <a class="btn btn--small btn--ghost" href="#pilot">Demo vormerken</a>
+              <a class="btn btn--small btn--ghost" href="#pilot">Demo buchen</a>
             </div>
           </article>
         </div>
@@ -201,11 +173,11 @@ import Layout from '../layouts/Layout.astro';
         <div class="grid3">
           <div class="panel">
             <h3>KI-Analyse (Phase 1)</h3>
-            <p>Upload von Schadensbildern und Ableitung einer Risiko-Ampel inkl. Konfidenzscore. Pilot-tauglich und erweiterbar.</p>
+            <p>Upload von Schadensbildern und Ableitung einer Risiko-Ampel inkl. „Sicherheit der Einschätzung“. Pilot-tauglich und erweiterbar.</p>
           </div>
           <div class="panel">
             <h3>Handlungsempfehlung</h3>
-            <p>DIY mit Materialliste (Baumarkt/Partner), Online-Beratung oder direkte Übergabe an Fachbetrieb/Versicherung – je nach Risiko.</p>
+            <p>Materialliste, Online-Beratung oder direkte Übergabe an Fachbetrieb/Versicherung – je nach Risiko.</p>
           </div>
           <div class="panel">
             <h3>Dashboard & Workflow</h3>
@@ -215,7 +187,7 @@ import Layout from '../layouts/Layout.astro';
 
         <h2 class="mt">So funktioniert es im Pilotbetrieb</h2>
         <p class="muted">
-          In Phase 1 starten wir bewusst schlank: Upload/Foto, KI-Analyse, Ampel-Priorisierung, nächste Schritte.
+          In Phase 1 starten wir bewusst schlank: Foto/Upload, KI-Analyse, Ampel-Priorisierung, nächste Schritte.
           Alles Weitere folgt in Phase 2 und 3.
         </p>
 
@@ -223,17 +195,17 @@ import Layout from '../layouts/Layout.astro';
           <div class="step">
             <div class="step__n">1</div>
             <h4>Bild erfassen</h4>
-            <p>Web-MVP: Upload oder Foto. Optionale Objektadresse/Projektzuordnung (für Verwaltungen/Organisationen).</p>
+            <p>Web-MVP: Upload oder Foto. Optional mit Objektadresse/Projektzuordnung (für Verwaltungen/Organisationen).</p>
           </div>
           <div class="step">
             <div class="step__n">2</div>
             <h4>KI-Auswertung</h4>
-            <p>Schadensklasse + Konfidenz + Ampel (grün/gelb/rot). Fokus auf klare Entscheidungen statt Perfektion.</p>
+            <p>Schadensart + Sicherheit der Einschätzung + Ampel (grün/gelb/rot). Fokus auf klare Entscheidungen statt Perfektion.</p>
           </div>
           <div class="step">
             <div class="step__n">3</div>
             <h4>Nächster Schritt</h4>
-            <p>DIY-Materialliste, Online-Beratung oder Übergabe an Fachbetrieb/Versicherung. Alles wird im Dashboard dokumentiert.</p>
+            <p>Materialliste, Online-Beratung oder Übergabe an Fachbetrieb/Versicherung. Alles wird im Dashboard dokumentiert.</p>
           </div>
         </div>
       </div>
@@ -277,6 +249,7 @@ import Layout from '../layouts/Layout.astro';
               Du bist Hausverwaltung, Organisation oder Handwerksbetrieb und möchtest 6–8 Wochen testen?
               Du bekommst eine schlanke Pilotversion, klare Meilensteine und ein sauberes Feedback-Setup.
             </p>
+
             <div class="cta__btns">
               <a class="btn btn--primary" href="#pilot-form">Pilotprojekt anfragen</a>
               <a class="btn btn--ghost" href="#faq">FAQ ansehen</a>
@@ -313,7 +286,7 @@ import Layout from '../layouts/Layout.astro';
         <details class="faq">
           <summary>Warum startet Phase 1 ohne Live-Scan?</summary>
           <p>
-            Weil Upload/Foto im Web schneller pilotfähig ist und die KI-Grundlogik validiert.
+            Weil Foto/Upload im Web schneller pilotfähig ist und die KI-Grundlogik validiert.
             Live-Scan und Detektion folgen in Phase 2, sobald echte Pilotdaten vorliegen.
           </p>
         </details>
@@ -321,7 +294,7 @@ import Layout from '../layouts/Layout.astro';
         <details class="faq">
           <summary>Was ist der konkrete Output der KI in Phase 1?</summary>
           <p>
-            Schadensklasse, Ampel-Priorität (grün/gelb/rot) und Konfidenzscore – als stabiler Kern für spätere Material-,
+            Schadensart, Ampel-Priorität (grün/gelb/rot) und die Sicherheit der Einschätzung – als stabiler Kern für spätere Material-,
             Norm- und Expertenlogik.
           </p>
         </details>
@@ -329,23 +302,16 @@ import Layout from '../layouts/Layout.astro';
         <details class="faq">
           <summary>Wie sicher sind meine Daten?</summary>
           <p>
-            Wir trennen Rollen (Privat/Team), minimieren Daten, und können Speicherung sowie Retention im Pilot festlegen.
+            Wir trennen Rollen (Privat/Team), minimieren Daten und können Speicherung sowie Retention im Pilot festlegen.
             Auf Wunsch nur temporäre Speicherung für Analyse/Feedback.
           </p>
         </details>
 
         <footer class="footer">
           <div class="footer__left">
-            <img
-              class="logo logo--big"
-              src="/images/the-repair-scanner-logo-transparent-2x.png"
-              alt="The Repair Scanner – powered by CURA"
-              loading="lazy"
-            />
+            <img class="logo" src="/images/the-repair-scanner-logo-transparent-2x.png" alt="The Repair Scanner – powered by CURA" />
           </div>
-          <div class="footer__right muted">
-            © {new Date().getFullYear()} The Repair Scanner • DACH & EU
-          </div>
+          <div class="footer__right muted">© {new Date().getFullYear()} The Repair Scanner • DACH & EU</div>
         </footer>
       </div>
     </section>
@@ -391,14 +357,7 @@ import Layout from '../layouts/Layout.astro';
       gap:18px;
     }
 
-    .logo{
-      height:102px;
-      width:auto;
-      display:block;
-    }
-    .logo--big{
-      height:156px;
-    }
+    .logo{ height:42px; width:auto; display:block; } /* ggf. 38–48px */
 
     .nav__center{ display:flex; gap:18px; }
     .nav__center a{
@@ -455,20 +414,24 @@ import Layout from '../layouts/Layout.astro';
       margin:0 auto;
       padding:18px 0 6px;
     }
+
     .hero__grid{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
       gap:26px;
       align-items:start;
     }
+
     h1{
       font-size:48px;
       line-height:1.05;
       margin:0 0 12px;
       letter-spacing:-.02em;
     }
+
     .lead{ color:var(--muted); font-size:16px; line-height:1.55; margin:0 0 16px; }
     .hero__cta{ display:flex; gap:12px; flex-wrap:wrap; margin:12px 0 12px; }
+
     .checks{
       list-style:none;
       padding:0;
@@ -480,11 +443,10 @@ import Layout from '../layouts/Layout.astro';
       font-size:13px;
     }
     .checks li::before{ content:"✓"; color:rgba(120,255,170,.85); margin-right:10px; }
+
     .note{ margin:0; color:rgba(255,255,255,.55); font-size:12px; }
 
-    .hero__visual{
-      position:relative;
-    }
+    .hero__visual{ position:relative; }
 
     .window{
       background:rgba(255,255,255,.04);
@@ -493,6 +455,7 @@ import Layout from '../layouts/Layout.astro';
       overflow:hidden;
       box-shadow:0 0 40px rgba(0,0,0,.35);
     }
+
     .window__top{
       display:flex;
       align-items:center;
@@ -501,8 +464,10 @@ import Layout from '../layouts/Layout.astro';
       border-bottom:1px solid rgba(255,255,255,.08);
       background:rgba(0,0,0,.18);
     }
+
     .dot{ width:10px; height:10px; border-radius:999px; background:rgba(255,255,255,.18); display:inline-block; }
     .window__title{ margin-left:6px; font-weight:700; font-size:12px; color:rgba(255,255,255,.75); }
+
     .window__chip{
       margin-left:auto;
       font-size:12px;
@@ -513,87 +478,48 @@ import Layout from '../layouts/Layout.astro';
       color:rgba(255,255,255,.8);
       font-weight:700;
     }
+
     .window__body{
       display:grid;
-      grid-template-columns: 1fr 1fr;
       gap:14px;
       padding:14px;
     }
-    .window__brand{ font-weight:800; font-size:12px; color:rgba(255,255,255,.75); margin-bottom:10px; }
+
+    /* SINGLE layout (nur Bild) */
+    .window__body--single{
+      grid-template-columns: 1fr;
+    }
+
+    .window__left--single{
+      width:100%;
+    }
+
+    .window__brand{
+      font-weight:800;
+      font-size:12px;
+      color:rgba(255,255,255,.75);
+      margin-bottom:10px;
+    }
 
     .window__placeholder{
-      position:relative;
-      height:220px;
       border-radius:14px;
+      border:1px dashed rgba(255,255,255,.14);
       background:
         radial-gradient(300px 180px at 70% 20%, rgba(76,201,255,.18), transparent 60%),
         radial-gradient(280px 160px at 30% 80%, rgba(120,255,170,.14), transparent 60%),
         rgba(255,255,255,.04);
-      border:1px dashed rgba(255,255,255,.14);
       overflow:hidden;
     }
+
+    .window__placeholder--img{
+      height:260px; /* etwas größer für die Grafik */
+    }
+
     .window__img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
-      border-radius:14px;
-    }
-
-    .window__overlay{
-      position:absolute;
-      left:12px;
-      right:12px;
-      bottom:12px;
-      padding:10px 12px;
-      border-radius:12px;
-      background:rgba(0,0,0,.45);
-      border:1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(8px);
-    }
-    .window__overlayTitle{
-      font-weight:900;
-      font-size:12px;
-      margin:0 0 4px;
-      color:rgba(255,255,255,.92);
-    }
-    .window__overlayText{
-      font-weight:700;
-      font-size:12px;
-      color:rgba(255,255,255,.72);
-    }
-    .window__caption{
-      margin-top:10px;
-      font-size:12px;
-      color:rgba(255,255,255,.62);
-      font-weight:700;
-      line-height:1.35;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      padding:8px 10px;
-      border-radius:999px;
-      font-weight:800;
-      font-size:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      margin-bottom:10px;
-    }
-    .badge--red{ border-color:rgba(255,120,120,.25); background:rgba(255,120,120,.08); }
-    .cardline{ display:flex; justify-content:space-between; gap:10px; padding:10px 12px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); margin-bottom:10px; }
-    .cardline span{ color:rgba(255,255,255,.65); font-weight:700; }
-    .cardline b{ font-weight:900; }
-    .actions{ display:flex; gap:8px; flex-wrap:wrap; }
-    .mini{
-      padding:9px 10px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      color:rgba(255,255,255,.9);
-      font-weight:800;
-      font-size:12px;
     }
 
     .mini-metrics{
@@ -602,12 +528,14 @@ import Layout from '../layouts/Layout.astro';
       grid-template-columns: repeat(4, 1fr);
       gap:10px;
     }
+
     .metric{
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.08);
       border-radius:14px;
       padding:10px 12px;
     }
+
     .metric b{ font-size:13px; }
     .metric span{ display:block; color:rgba(255,255,255,.60); font-weight:700; font-size:12px; margin-top:4px; }
 
@@ -618,29 +546,34 @@ import Layout from '../layouts/Layout.astro';
     h3{ margin:0 0 8px; }
     .muted{ color:var(--muted); }
 
-    /* Problem cards */
-    .problemGrid{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .problemCard{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
+    .impact{
+      margin-top:18px;
+      padding:18px;
       border-radius:18px;
-      padding:16px;
-      box-shadow:0 0 30px rgba(0,0,0,.20);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      box-shadow:0 0 30px rgba(0,0,0,.25);
     }
-    .problemCard p{ margin:0; line-height:1.5; }
 
-    /* Image cards - CSS for HTML text overlay */
+    .impact__number{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      padding-top:6px;
+    }
+
+    .impact__number .n{ font-size:54px; font-weight:900; letter-spacing:-.03em; }
+    .impact__number .u{ font-size:22px; font-weight:900; color:rgba(120,255,170,.85); }
+    .impact__number .s{ font-size:18px; font-weight:800; color:rgba(255,255,255,.65); }
+
+    /* Image cards with HTML text overlay */
     .cards{
       margin-top:18px;
       display:grid;
       grid-template-columns: repeat(4, 1fr);
       gap:14px;
     }
+
     .imgcard{
       position:relative;
       min-height:280px;
@@ -654,6 +587,7 @@ import Layout from '../layouts/Layout.astro';
       background-position:center;
       box-shadow:0 0 30px rgba(0,0,0,.25);
     }
+
     .imgcard__overlay{
       position:absolute;
       inset:0;
@@ -664,12 +598,14 @@ import Layout from '../layouts/Layout.astro';
       gap:10px;
       background:linear-gradient(180deg, rgba(0,0,0,.00) 40%, rgba(0,0,0,.55) 100%);
     }
+
     .imgcard h4{
       margin:0;
       font-size:20px;
       font-weight:900;
       text-shadow:0 2px 10px rgba(0,0,0,.45);
     }
+
     .imgcard ul{
       margin:0;
       padding-left:16px;
@@ -686,18 +622,21 @@ import Layout from '../layouts/Layout.astro';
       gap:14px;
       margin-top:14px;
     }
+
     .grid2{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:14px;
       margin-top:14px;
     }
+
     .panel{
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.10);
       border-radius:18px;
       padding:16px;
     }
+
     .panel p{ color:rgba(255,255,255,.72); margin:0; line-height:1.5; }
     .bullets{ margin:10px 0 0; color:rgba(255,255,255,.72); font-weight:700; line-height:1.45; }
     .mt{ margin-top:26px; }
@@ -708,12 +647,14 @@ import Layout from '../layouts/Layout.astro';
       grid-template-columns: repeat(3, 1fr);
       gap:14px;
     }
+
     .step{
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.10);
       border-radius:18px;
       padding:16px;
     }
+
     .step__n{
       width:34px; height:34px; border-radius:12px;
       display:flex; align-items:center; justify-content:center;
@@ -722,6 +663,7 @@ import Layout from '../layouts/Layout.astro';
       border:1px solid rgba(76,201,255,.25);
       margin-bottom:10px;
     }
+
     .step h4{ margin:0 0 6px; font-size:16px; }
     .step p{ margin:0; color:rgba(255,255,255,.72); line-height:1.5; font-weight:650; }
 
@@ -732,12 +674,14 @@ import Layout from '../layouts/Layout.astro';
       gap:14px;
       align-items:stretch;
     }
+
     .cta__text{
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.10);
       border-radius:18px;
       padding:18px;
     }
+
     .cta__btns{ display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
 
     .form{
@@ -748,7 +692,9 @@ import Layout from '../layouts/Layout.astro';
       display:grid;
       gap:12px;
     }
+
     label span{ display:block; font-weight:800; font-size:12px; color:rgba(255,255,255,.72); margin-bottom:6px; }
+
     input{
       width:100%;
       padding:12px 12px;
@@ -758,6 +704,7 @@ import Layout from '../layouts/Layout.astro';
       color:rgba(255,255,255,.92);
       outline:none;
     }
+
     input:focus{ border-color:rgba(76,201,255,.35); box-shadow:0 0 0 3px rgba(76,201,255,.10); }
 
     .tiny{ font-size:12px; margin:0; }
@@ -769,6 +716,7 @@ import Layout from '../layouts/Layout.astro';
       border-radius:16px;
       padding:12px 14px;
     }
+
     summary{ cursor:pointer; font-weight:900; }
     .faq p{ margin:10px 0 0; color:rgba(255,255,255,.72); line-height:1.5; }
 
@@ -792,12 +740,11 @@ import Layout from '../layouts/Layout.astro';
       .steps{ grid-template-columns: 1fr; }
       .cta{ grid-template-columns: 1fr; }
       .nav__center{ display:none; }
-      .problemGrid{ grid-template-columns: 1fr; }
     }
+
     @media (max-width: 520px){
       .cards{ grid-template-columns: 1fr; }
       h1{ font-size:34px; }
-      .logo--big{ height:44px; }
     }
   </style>
 </Layout>
