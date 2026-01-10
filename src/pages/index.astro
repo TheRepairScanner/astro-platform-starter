@@ -1,19 +1,123 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/#html-streaming) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
 ---
 
-<Layout title="Welcome to Astro.">
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg sm:min-w-64">Read the Docs</a>
-    </p>
+<Layout title="The Repair Scanner – Schäden erkennen. Entscheidungen beschleunigen.">
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>The Repair Scanner</h1>
+      <p class="subtitle">
+        Schäden erkennen. Entscheidungen beschleunigen.<br />
+        Für Eigentümer, Verwalter, Handwerk & Versicherungen.
+      </p>
+      <a href="#kontakt" class="cta-button">Jetzt unverbindlich anfragen</a>
+    </section>
+
+    <!-- WAS IST DAS -->
+    <section class="section">
+      <h2>Was ist The Repair Scanner?</h2>
+      <p>
+        The Repair Scanner ist eine digitale Lösung zur strukturierten Erfassung,
+        Bewertung und Dokumentation von Schäden an Gebäuden und Bauteilen.
+        Schnell. Neutral. Verständlich.
+      </p>
+    </section>
+
+    <!-- ZIELGRUPPEN -->
+    <section class="section light">
+      <h2>Für wen ist das?</h2>
+      <ul class="grid">
+        <li><strong>Eigentümer & Investoren</strong><br />Fundierte Entscheidungsgrundlagen</li>
+        <li><strong>Hausverwaltungen</strong><br />Klare Schadensberichte ohne Fachchinesisch</li>
+        <li><strong>Handwerksbetriebe</strong><br />Saubere Vorabklärung & Angebotsbasis</li>
+        <li><strong>Versicherungen & Gutachter</strong><br />Strukturierte Dokumentation</li>
+      </ul>
+    </section>
+
+    <!-- VORTEILE -->
+    <section class="section">
+      <h2>Ihre Vorteile</h2>
+      <ul class="grid">
+        <li>Schnelle Schadenserfassung</li>
+        <li>Einheitliche Bewertung</li>
+        <li>Digitale Dokumentation</li>
+        <li>Besser vergleichbare Entscheidungen</li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+      <h2>Interesse?</h2>
+      <p>Fordern Sie eine Beispiel-Auswertung oder ein Erstgespräch an.</p>
+<a id="kontakt" href="mailto:info@therepairscanner.com" class="cta-button">
+        Kontakt aufnehmen
+      </a>
+    </section>
+
+  </main>
 </Layout>
+
+<style>
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  font-family: system-ui, sans-serif;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.section {
+  margin: 4rem 0;
+}
+
+.section.light {
+  background: #f6f7f8;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.cta {
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.8rem;
+  background: #0ea5e9;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+</style>
