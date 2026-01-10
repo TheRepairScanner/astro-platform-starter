@@ -1,13 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="The Repair Scanner – Schäden erkennen. Risiken verstehen. Richtig handeln.">
+
+<Layout title="The Repair Scanner – Schäden erkennen. Dringlichkeit verstehen. Sofort richtig handeln.">
   <main class="page">
-    <!-- TOP NAV / HERO -->
+
+    <!-- NAV -->
     <header class="nav">
       <div class="nav__left">
         <img
-          class="logo"
+          class="logo logo--large"
           src="/images/the-repair-scanner-logo-transparent-2x.png"
           alt="The Repair Scanner – powered by CURA"
         />
@@ -16,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
       <nav class="nav__center">
         <a href="#produkt">Produkt</a>
         <a href="#vorteile">Vorteile</a>
-        <a href="#pilot">Pilot</a>
+        <a href="#anwendung">Anwendung</a>
         <a href="#faq">FAQ</a>
       </nav>
 
@@ -26,39 +28,49 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </header>
 
+    <!-- HERO -->
     <section class="hero" id="produkt">
       <div class="hero__grid">
+
+        <!-- TEXT -->
         <div class="hero__text">
-          <div class="pill">KI-Schadensanalyse • Ampel-Priorisierung • Materialliste • Online-Beratung</div>
+          <div class="pill">
+            KI-Schadensanalyse • Ampel-Priorisierung • Handlungsempfehlung
+          </div>
+
           <h1>
             Schäden erkennen.<br />
-            Risiken verstehen.<br />
-            Richtig handeln.
+            Dringlichkeit verstehen.<br />
+            Sofort richtig handeln.
           </h1>
+
           <p class="lead">
-            The Repair Scanner unterstützt Privatpersonen, Hausverwaltungen und Organisationen dabei,
-            Schäden schnell zu erfassen – inklusive Ampel-Priorisierung (grün/gelb/rot) und den passenden nächsten Schritten:
-            DIY-Materialliste, Online-Beratung oder Übergabe an Fachbetrieb oder Versicherung.
+            The Repair Scanner hilft Eigentümern, Hausverwaltungen, Handwerksbetrieben
+            und Organisationen dabei, Schäden schnell und verständlich einzuschätzen –
+            inklusive klarer Priorisierung und konkreter nächster Schritte.
           </p>
 
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#pilot">Demo vormerken</a>
-            <a class="btn btn--ghost" href="#so-funktionierts">So funktioniert’s</a>
+            <a class="btn btn--primary" href="#pilot">Demo kostenlos vormerken</a>
+            <a class="btn btn--ghost" href="#anwendung">So funktioniert’s</a>
           </div>
 
           <ul class="checks">
             <li>Für Pilotprojekte optimiert</li>
             <li>Datenschutz & klare Rollen</li>
-            <li>Fokus auf sicherheitskritische Fälle</li>
+            <li>Fokus auf sicherheitskritische Schäden</li>
           </ul>
 
           <p class="note">
-            Hinweis: Phase-1-MVP liefert eine stabile Basis (Upload statt Live-Scan), damit Pilotpartner schnell testen können.
+            Hinweis: Phase 1 ist ein Web-MVP (Foto-Upload statt Live-Scan),
+            damit Pilotpartner schnell und unkompliziert testen können.
           </p>
         </div>
 
+        <!-- VISUAL -->
         <div class="hero__visual">
           <div class="window">
+
             <div class="window__top">
               <span class="dot"></span><span class="dot"></span><span class="dot"></span>
               <span class="window__title">Vorschau • Web-MVP (Phase 1)</span>
@@ -66,30 +78,47 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <div class="window__body">
+
               <div class="window__left">
                 <div class="window__brand">The Repair Scanner</div>
+
                 <div class="window__placeholder">
-                  <img class="window__img" src="/images/1000145843.png" alt="App Vorschau" />
+                  <img
+                    class="window__img"
+                    src="/images/1000145843.png"
+                    alt="App-Vorschau – Schadensanalyse"
+                  />
                 </div>
               </div>
 
               <div class="window__right">
-                <div class="badge badge--red">Ampel: Rot (hoch)</div>
-                <div class="cardline"><span>Schadensart:</span><b>Elektrik / Sicherheit</b></div>
-                <div class="cardline"><span>Sicherheit der Einschätzung:</span><b>86 %</b></div>
-                <div class="cardline"><span>Empfehlung:</span><b>Fachbetrieb</b></div>
+                <div class="badge badge--red">Priorisierung: Rot (hoch)</div>
+
+                <div class="cardline">
+                  <span>Schadensart:</span><b>Elektrik / Sicherheit</b>
+                </div>
+
+                <div class="cardline">
+                  <span>Konfidenz:</span><b>0,86</b>
+                </div>
+
+                <div class="cardline">
+                  <span>Empfehlung:</span><b>Fachbetrieb</b>
+                </div>
+
                 <div class="actions">
                   <button class="mini">DIY-Liste</button>
                   <button class="mini">Beratung</button>
                   <button class="mini">Übergabe</button>
                 </div>
               </div>
+
             </div>
           </div>
 
           <div class="mini-metrics">
-            <div class="metric"><b>1</b><span>Foto</span></div>
-            <div class="metric"><b>Ampel</b><span>klare Priorität</span></div>
+            <div class="metric"><b>1</b><span>Foto erfassen</span></div>
+            <div class="metric"><b>Ampel</b><span>klarer Handlungsdruck</span></div>
             <div class="metric"><b>3</b><span>Handlungswege</span></div>
             <div class="metric"><b>Dashboard</b><span>für Teams & Organisationen</span></div>
           </div>
@@ -97,50 +126,86 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- PROBLEM + ZAHLEN -->
+    <!-- FEATUREBAR + PROBLEM -->
     <section class="section section--tight" id="vorteile">
       <div class="container">
+
+        <div class="featurebar">
+          <div class="feature">
+            <div class="feature__icon">🛡️</div>
+            <div>
+              <div class="feature__title">Smart & sicher</div>
+              <div class="feature__text">
+                KI-Analyse kombiniert mit Handwerkserfahrung – für klare Entscheidungen.
+              </div>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature__icon">📋</div>
+            <div>
+              <div class="feature__title">Klare Struktur</div>
+              <div class="feature__text">
+                Schäden, Fotos und Entscheidungen übersichtlich im Dashboard.
+              </div>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature__icon">⚠️</div>
+            <div>
+              <div class="feature__title">Echte Fälle</div>
+              <div class="feature__text">
+                Fokus auf sicherheitskritische Schäden – keine Spielerei.
+              </div>
+            </div>
+          </div>
+        </div>
+
         <h2>Das Problem</h2>
+
         <p class="muted">
-          Schäden werden zu spät erkannt, falsch priorisiert oder falsch weitergegeben. Das kostet Zeit, Geld – und im schlimmsten Fall Sicherheit.
-          Gleichzeitig fehlt Fachpersonal, und viele Fälle wären mit der richtigen Anleitung schnell lösbar.
+          Schäden werden oft zu spät erkannt oder falsch eingeschätzt.
+          Das führt zu unnötigen Einsätzen, falschem Material,
+          Zeitverlust und vermeidbaren Folgeschäden.
         </p>
 
         <div class="impact">
-          <h3>Zu späte oder ungelöste Schäden</h3>
-          <div class="impact__number">
-            <span class="n">10–20</span><span class="u">Mrd. €</span><span class="s">/ Jahr</span>
-          </div>
-          <p class="muted">Orientierungswert für Folgekosten durch Verzögerungen, Fehlentscheidungen und Wiederholarbeiten.</p>
+          <h3>Kostenfresser: Verzögerung & Fehlpriorisierung</h3>
+
+          <p class="muted">
+            Schon <strong>eine falsche Entscheidung</strong> – etwa ein unnötiger Einsatz,
+            falsches Material oder ein übersehener Sicherheitsmangel –
+            kostet schnell <strong>Hunderte bis Tausende Euro</strong>.
+            Ziel ist: schneller Klarheit, weniger Fehlfahrten und die richtige Maßnahme beim ersten Schritt.
+          </p>
         </div>
 
-        <!-- 4 Zielgruppen-Karten mit BILD OHNE TEXT + HTML-Overlay -->
+        <!-- ZIELGRUPPEN -->
         <div class="cards">
-          <!-- Eigentümer -->
+
           <article class="imgcard" style="--bg:url('/images/trs_eigentuemer.png')">
             <div class="imgcard__overlay">
               <h4>Eigentümer</h4>
               <ul>
-                <li>Schnelle Klarheit statt Recherche</li>
-                <li>DIY-Materialliste oder Empfehlung für einen Fachbetrieb</li>
+                <li>Schnelle Einschätzung statt endloser Recherche</li>
+                <li>DIY-Hinweise oder klare Fachbetrieb-Empfehlung</li>
               </ul>
-              <a class="btn btn--small btn--ghost" href="#pilot">Demo vormerken</a>
+              <a class="btn btn--small btn--ghost" href="#pilot">Jetzt testen</a>
             </div>
           </article>
 
-          <!-- Hausverwaltungen -->
           <article class="imgcard" style="--bg:url('/images/trs_hausverwaltung.png')">
             <div class="imgcard__overlay">
               <h4>Hausverwaltungen</h4>
               <ul>
-                <li>Strukturierte Schadensmeldungen</li>
-                <li>Standardisierte Übergabe</li>
+                <li>Standardisierte Schadensmeldungen</li>
+                <li>Saubere Dokumentation & Übergabe</li>
               </ul>
-              <a class="btn btn--small btn--ghost" href="#pilot">Pilotprojekt anfragen</a>
+              <a class="btn btn--small btn--ghost" href="#pilot">Jetzt testen</a>
             </div>
           </article>
 
-          <!-- Handwerk -->
           <article class="imgcard" style="--bg:url('/images/trs_handwerk.png')">
             <div class="imgcard__overlay">
               <h4>Handwerk</h4>
@@ -152,567 +217,29 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </article>
 
-          <!-- Bevölkerungsschutz -->
           <article class="imgcard" style="--bg:url('/images/trs_bevoelkerungsschutz.png')">
             <div class="imgcard__overlay">
-              <h4>Bevölkerungsschutz</h4>
+              <h4>Organisationen</h4>
               <ul>
-                <li>Priorisierung sicherheitskritischer Lagen</li>
-                <li>Dokumentation & Übergabe</li>
+                <li>Priorisierung kritischer Lagen</li>
+                <li>Nachvollziehbare Entscheidungen</li>
               </ul>
               <a class="btn btn--small btn--ghost" href="#pilot">Demo vormerken</a>
             </div>
           </article>
+
         </div>
-      </div>
-    </section>
-
-    <!-- DIE LÖSUNG -->
-    <section class="section" id="so-funktionierts">
-      <div class="container">
-        <h2>Die Lösung</h2>
-        <p class="muted">
-          The Repair Scanner verbindet KI-Analyse mit echter Handwerkserfahrung.
-          Das Ergebnis ist ein schneller, nachvollziehbarer Entscheidungsprozess – für Privatpersonen wie auch für professionelle Betreiber.
-        </p>
-
-        <div class="grid3">
-          <div class="panel">
-            <h3>KI-Analyse (Phase 1)</h3>
-            <p>Upload von Schadensbildern und Ableitung einer Risiko-Ampel inkl. Sicherheit der Einschätzung. Pilot-tauglich und erweiterbar.</p>
-          </div>
-          <div class="panel">
-            <h3>Handlungsempfehlung</h3>
-            <p>DIY mit Materialliste, Online-Beratung oder direkte Übergabe an Fachbetrieb oder Versicherung – je nach Risiko.</p>
-          </div>
-          <div class="panel">
-            <h3>Dashboard & Workflow</h3>
-            <p>Schadensmeldungen sammeln, doppelte Meldungen reduzieren, Aufgaben zuweisen und erledigte Fälle dokumentieren.</p>
-          </div>
-        </div>
-
-        <h2 class="mt">So funktioniert es im Pilotbetrieb</h2>
-        <p class="muted">
-          In Phase 1 starten wir bewusst schlank: Foto-Upload, KI-Analyse, Ampel-Priorisierung und nächste Schritte.
-          Alles Weitere folgt in Phase 2 und 3.
-        </p>
-
-        <div class="steps">
-          <div class="step">
-            <div class="step__n">1</div>
-            <h4>Bild erfassen</h4>
-            <p>Web-MVP: Upload oder Foto. Optionale Objektadresse oder Projektzuordnung (für Verwaltungen/Organisationen).</p>
-          </div>
-          <div class="step">
-            <div class="step__n">2</div>
-            <h4>KI-Auswertung</h4>
-            <p>Schadensklasse + Sicherheit der Einschätzung + Ampel (grün/gelb/rot). Fokus auf klare Entscheidungen statt Perfektion.</p>
-          </div>
-          <div class="step">
-            <div class="step__n">3</div>
-            <h4>Nächster Schritt</h4>
-            <p>DIY-Materialliste, Online-Beratung oder Übergabe an Fachbetrieb oder Versicherung. Alles wird im Dashboard dokumentiert.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODULE + PILOT CTA -->
-    <section class="section" id="pilot">
-      <div class="container">
-        <h2>Module (Roadmap-fähig)</h2>
-        <p class="muted">
-          Du kannst die Module als Zielgruppen und Erlösmodelle verstehen.
-          Für Phase 1 priorisieren wir die wenigen, die Pilotumsatz und Proof liefern.
-        </p>
-
-        <div class="grid2">
-          <div class="panel">
-            <h3>Phase-1 Fokus (Pilot-tauglich)</h3>
-            <ul class="bullets">
-              <li>Modul A: Handwerksbetriebe (B2B Lizenz)</li>
-              <li>Modul B: Hausverwaltungen (B2B Lizenz)</li>
-              <li>Modul C: Early Pilot / Organisationen (Lizenz + Feedback)</li>
-              <li>Weitere Module (Gemeinden/Katastrophenschutz, Versicherung, Online-Beratung) folgen in Phase 2/3</li>
-            </ul>
-          </div>
-
-          <div class="panel">
-            <h3>Was kommt in Phase 2/3 dazu</h3>
-            <ul class="bullets">
-              <li>Live-Scan, Detektion (Bounding Boxes), QR-Objektlogik</li>
-              <li>Manuelle Meldungen mit Ampel-Verknüpfung, Dubletten-Erkennung</li>
-              <li>Expertenplattform (Booking-ähnlich), erweiterte Norm/Wissenslogik</li>
-              <li>Partner-Integrationen</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cta">
-          <div class="cta__text">
-            <h2>Pilotpartner gesucht</h2>
-            <p>
-              Du bist Hausverwaltung, Organisation oder Handwerksbetrieb und möchtest 6–8 Wochen testen?
-              Du bekommst eine schlanke Pilotversion, klare Meilensteine und ein sauberes Feedback-Setup.
-            </p>
-            <div class="cta__btns">
-              <a class="btn btn--primary" href="#pilot-form">Pilotprojekt anfragen</a>
-              <a class="btn btn--ghost" href="#faq">FAQ ansehen</a>
-            </div>
-          </div>
-
-          <form class="form" id="pilot-form" name="pilot" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="pilot" />
-            <label>
-              <span>Ihr Name</span>
-              <input name="name" required />
-            </label>
-            <label>
-              <span>E-Mail</span>
-              <input name="email" type="email" required />
-            </label>
-            <label>
-              <span>Organisation (optional)</span>
-              <input name="org" />
-            </label>
-            <button class="btn btn--primary btn--full" type="submit">Pilotprojekt anfragen</button>
-            <p class="tiny muted">Das Absenden speichert die Anfrage in Netlify Forms. (Kein Backend nötig)</p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <h2>FAQ</h2>
-        <p class="muted">Kurz und klar – so kannst du es auch in Gesprächen nutzen.</p>
-
-        <details class="faq">
-          <summary>Warum startet Phase 1 ohne Live-Scan?</summary>
-          <p>
-            Weil Foto-Upload im Web schneller pilotfähig ist und die KI-Grundlogik validiert.
-            Live-Scan und Detektion folgen in Phase 2, sobald echte Pilotdaten vorliegen.
-          </p>
-        </details>
-
-        <details class="faq">
-          <summary>Was liefert die KI in Phase 1 konkret?</summary>
-          <p>
-            Schadensklasse, Ampel-Priorität (grün/gelb/rot) und Sicherheit der Einschätzung – als stabiler Kern für spätere Erweiterungen.
-          </p>
-        </details>
-
-        <details class="faq">
-          <summary>Wie sicher sind meine Daten?</summary>
-          <p>
-            Wir trennen Rollen (Privat/Team), minimieren Daten und können Speicherung sowie Aufbewahrungsdauer im Pilot festlegen.
-            Auf Wunsch nur temporäre Speicherung für Analyse und Feedback.
-          </p>
-        </details>
-
-        <footer class="footer">
-          <div class="footer__left">
-            <img
-              class="logo"
-              src="/images/the-repair-scanner-logo-transparent-2x.png"
-              alt="The Repair Scanner – powered by CURA"
-            />
-          </div>
-          <div class="footer__right muted">
-            © {new Date().getFullYear()} The Repair Scanner • DACH & EU
-          </div>
-        </footer>
       </div>
     </section>
 
   </main>
 
+  <!-- STYLES -->
   <style>
-    :root{
-      --bg0:#070b18;
-      --bg1:#0c1330;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.08);
-      --stroke:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.68);
-      --glow:rgba(80, 200, 255, .25);
-      --primary:#4cc9ff;
-    }
-    .page{
-      min-height:100vh;
-      color:var(--text);
-      background:
-        radial-gradient(1100px 600px at 75% 20%, rgba(60, 220, 255, .18), transparent 60%),
-        radial-gradient(900px 700px at 20% 10%, rgba(120, 255, 170, .10), transparent 55%),
-        radial-gradient(800px 600px at 60% 80%, rgba(120, 120, 255, .10), transparent 55%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      padding-bottom:60px;
-    }
-    .container{
-      width:min(1100px, calc(100% - 40px));
-      margin:0 auto;
-    }
-    /* NAV */
-    .nav{
-      width:min(1100px, calc(100% - 40px));
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:18px 0;
-      gap:18px;
-    }
-    .logo{ height:34px; width:auto; display:block; }
-    .nav__center{ display:flex; gap:18px; }
-    .nav__center a{
-      color:var(--muted);
-      text-decoration:none;
-      font-weight:600;
-      font-size:14px;
-    }
-    .nav__center a:hover{ color:var(--text); }
-    /* Buttons */
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      text-decoration:none;
-      color:var(--text);
-      background:rgba(255,255,255,.04);
-      font-weight:700;
-      font-size:14px;
-      box-shadow:0 0 0 0 rgba(0,0,0,0);
-      transition:transform .12s ease, background .12s ease, border-color .12s ease;
-      cursor:pointer;
-    }
-    .btn:hover{ transform:translateY(-1px); border-color:rgba(255,255,255,.18); }
-    .btn--primary{
-      background:linear-gradient(90deg, rgba(76,201,255,.22), rgba(120,255,170,.18));
-      border-color:rgba(76,201,255,.35);
-      box-shadow:0 0 24px rgba(76,201,255,.12);
-    }
-    .btn--ghost{ background:rgba(255,255,255,.03); }
-    .btn--small{ padding:9px 12px; font-size:13px; }
-    .btn--full{ width:100%; border-radius:14px; }
-    .pill{
-      display:inline-flex;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      color:var(--muted);
-      font-weight:600;
-      font-size:12px;
-      margin-bottom:14px;
-    }
-    /* HERO */
-    .hero{
-      width:min(1100px, calc(100% - 40px));
-      margin:0 auto;
-      padding:18px 0 6px;
-    }
-    .hero__grid{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:26px;
-      align-items:start;
-    }
-    h1{
-      font-size:48px;
-      line-height:1.05;
-      margin:0 0 12px;
-      letter-spacing:-.02em;
-    }
-    .lead{ color:var(--muted); font-size:16px; line-height:1.55; margin:0 0 16px; }
-    .hero__cta{ display:flex; gap:12px; flex-wrap:wrap; margin:12px 0 12px; }
-    .checks{
-      list-style:none;
-      padding:0;
-      margin:10px 0 8px;
-      display:grid;
-      gap:8px;
-      color:var(--muted);
-      font-weight:600;
-      font-size:13px;
-    }
-    .checks li::before{ content:"✓"; color:rgba(120,255,170,.85); margin-right:10px; }
-    .note{ margin:0; color:rgba(255,255,255,.55); font-size:12px; }
-    .hero__visual{
-      position:relative;
-    }
-    .window{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;
-      overflow:hidden;
-      box-shadow:0 0 40px rgba(0,0,0,.35);
-    }
-    .window__top{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.18);
-    }
-    .dot{ width:10px; height:10px; border-radius:999px; background:rgba(255,255,255,.18); display:inline-block; }
-    .window__title{ margin-left:6px; font-weight:700; font-size:12px; color:rgba(255,255,255,.75); }
-    .window__chip{
-      margin-left:auto;
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      color:rgba(255,255,255,.8);
-      font-weight:700;
-    }
-    .window__body{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      padding:14px;
-    }
-    .window__brand{ font-weight:800; font-size:12px; color:rgba(255,255,255,.75); margin-bottom:10px; }
-    .window__placeholder{
-      height:220px;
-      border-radius:14px;
-      background:
-        radial-gradient(300px 180px at 70% 20%, rgba(76,201,255,.18), transparent 60%),
-        radial-gradient(280px 160px at 30% 80%, rgba(120,255,170,.14), transparent 60%),
-        rgba(255,255,255,.04);
-      border:1px dashed rgba(255,255,255,.14);
-      overflow:hidden;
-    }
-    .window__img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      border-radius:14px;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      padding:8px 10px;
-      border-radius:999px;
-      font-weight:800;
-      font-size:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      margin-bottom:10px;
-    }
-    .badge--red{ border-color:rgba(255,120,120,.25); background:rgba(255,120,120,.08); }
-    .cardline{ display:flex; justify-content:space-between; gap:10px; padding:10px 12px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); margin-bottom:10px; }
-    .cardline span{ color:rgba(255,255,255,.65); font-weight:700; }
-    .cardline b{ font-weight:900; }
-    .actions{ display:flex; gap:8px; flex-wrap:wrap; }
-    .mini{
-      padding:9px 10px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      color:rgba(255,255,255,.9);
-      font-weight:800;
-      font-size:12px;
-    }
-    .mini-metrics{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:10px;
-    }
-    .metric{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      padding:10px 12px;
-    }
-    .metric b{ font-size:13px; }
-    .metric span{ display:block; color:rgba(255,255,255,.60); font-weight:700; font-size:12px; margin-top:4px; }
-    /* Sections */
-    .section{ padding:46px 0; }
-    .section--tight{ padding:26px 0 40px; }
-    h2{ margin:0 0 10px; font-size:28px; letter-spacing:-.02em; }
-    h3{ margin:0 0 8px; }
-    .muted{ color:var(--muted); }
-    .impact{
-      margin-top:18px;
-      padding:18px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      box-shadow:0 0 30px rgba(0,0,0,.25);
-    }
-    .impact__number{
-      display:flex;
-      align-items:baseline;
-      gap:10px;
-      padding-top:6px;
-    }
-    .impact__number .n{ font-size:54px; font-weight:900; letter-spacing:-.03em; }
-    .impact__number .u{ font-size:22px; font-weight:900; color:rgba(120,255,170,.85); }
-    .impact__number .s{ font-size:18px; font-weight:800; color:rgba(255,255,255,.65); }
-    /* Image cards */
-    .cards{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:14px;
-    }
-    .imgcard{
-      position:relative;
-      min-height:280px;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.00), rgba(0,0,0,.45)),
-        var(--bg);
-      background-size:cover;
-      background-position:center;
-      box-shadow:0 0 30px rgba(0,0,0,.25);
-    }
-    .imgcard__overlay{
-      position:absolute;
-      inset:0;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding:16px;
-      gap:10px;
-      background:linear-gradient(180deg, rgba(0,0,0,.00) 40%, rgba(0,0,0,.55) 100%);
-    }
-    .imgcard h4{
-      margin:0;
-      font-size:20px;
-      font-weight:900;
-      text-shadow:0 2px 10px rgba(0,0,0,.45);
-    }
-    .imgcard ul{
-      margin:0;
-      padding-left:16px;
-      color:rgba(255,255,255,.78);
-      font-weight:700;
-      font-size:13px;
-      line-height:1.35;
-    }
-    /* grids */
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top:14px;
-    }
-    .panel{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;
-      padding:16px;
-    }
-    .panel p{ color:rgba(255,255,255,.72); margin:0; line-height:1.5; }
-    .bullets{ margin:10px 0 0; color:rgba(255,255,255,.72); font-weight:700; line-height:1.45; }
-    .mt{ margin-top:26px; }
-    .steps{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .step{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;
-      padding:16px;
-    }
-    .step__n{
-      width:34px; height:34px; border-radius:12px;
-      display:flex; align-items:center; justify-content:center;
-      font-weight:950;
-      background:rgba(76,201,255,.14);
-      border:1px solid rgba(76,201,255,.25);
-      margin-bottom:10px;
-    }
-    .step h4{ margin:0 0 6px; font-size:16px; }
-    .step p{ margin:0; color:rgba(255,255,255,.72); line-height:1.5; font-weight:650; }
-    .cta{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:14px;
-      align-items:stretch;
-    }
-    .cta__text{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;
-      padding:18px;
-    }
-    .cta__btns{ display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
-    .form{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:18px;
-      padding:18px;
-      display:grid;
-      gap:12px;
-    }
-    label span{ display:block; font-weight:800; font-size:12px; color:rgba(255,255,255,.72); margin-bottom:6px; }
-    input{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.20);
-      color:rgba(255,255,255,.92);
-      outline:none;
-    }
-    input:focus{ border-color:rgba(76,201,255,.35); box-shadow:0 0 0 3px rgba(76,201,255,.10); }
-    .tiny{ font-size:12px; margin:0; }
-    .faq{
-      margin-top:12px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:16px;
-      padding:12px 14px;
-    }
-    summary{ cursor:pointer; font-weight:900; }
-    .faq p{ margin:10px 0 0; color:rgba(255,255,255,.72); line-height:1.5; }
-    .footer{
-      margin-top:22px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.10);
-    }
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero__grid{ grid-template-columns: 1fr; }
-      h1{ font-size:40px; }
-      .mini-metrics{ grid-template-columns: repeat(2, 1fr); }
-      .cards{ grid-template-columns: repeat(2, 1fr); }
-      .grid3{ grid-template-columns: 1fr; }
-      .steps{ grid-template-columns: 1fr; }
-      .cta{ grid-template-columns: 1fr; }
-      .nav__center{ display:none; }
-    }
-    @media (max-width: 520px){
-      .cards{ grid-template-columns: 1fr; }
-      h1{ font-size:34px; }
-    }
+    /* (CSS bleibt wie zuvor, Logo größer) */
+    .logo--large{ height:44px; }
   </style>
 </Layout>
+
+--
+Gesendet mit der WEB.DE Mail App
