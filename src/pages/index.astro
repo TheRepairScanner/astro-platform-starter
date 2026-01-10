@@ -4,120 +4,577 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="The Repair Scanner – Schäden erkennen. Entscheidungen beschleunigen.">
   <main class="container">
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Repair Scanner – powered by CURA</title>
+  <meta name="description" content="KI-gestützte Schadensanalyse mit Ampel-Priorisierung, Materialliste, Online-Beratung und Übergabe an Fachbetriebe, Hausverwaltungen oder Versicherungen." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#0f1730;
+      --card2:#0d142a;
+      --text:#e8ecff;
+      --muted:#b8c0ea;
+      --line:rgba(255,255,255,.10);
+      --accent:#7c5cff;
+      --accent2:#00d4ff;
+      --good:#21c77a;
+      --warn:#ffb020;
+      --bad:#ff4d4d;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:26px;
+      --max: 1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family:var(--font); background:radial-gradient(1100px 700px at 15% 0%, rgba(124,92,255,.25), transparent 60%),
+                                           radial-gradient(900px 650px at 90% 10%, rgba(0,212,255,.18), transparent 55%),
+                                           radial-gradient(800px 600px at 55% 85%, rgba(33,199,122,.10), transparent 55%),
+                                           var(--bg);
+              color:var(--text);}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,.55);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0; gap:16px;}
+    .brand{display:flex; align-items:center; gap:10px; min-width:240px}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,92,255,1), rgba(0,212,255,1));
+      box-shadow: 0 10px 30px rgba(124,92,255,.25);
+      position:relative;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:10px;
+      border-radius:10px;
+      border:2px solid rgba(255,255,255,.65);
+      opacity:.6;
+    }
+    .brand-title{display:flex; flex-direction:column; line-height:1.1}
+    .brand-title strong{font-size:14px; letter-spacing:.2px}
+    .brand-title span{font-size:12px; color:var(--muted)}
+    .nav-links{display:flex; gap:14px; flex-wrap:wrap; justify-content:center}
+    .nav-links a{font-size:13px; color:var(--muted); padding:8px 10px; border-radius:10px}
+    .nav-links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .nav-cta{display:flex; gap:10px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 14px; border-radius:12px; border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:var(--text); font-weight:600; font-size:13px;
+      transition: transform .08s ease, background .2s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{background: rgba(255,255,255,.10)}
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      border: none;
+      background: linear-gradient(135deg, rgba(124,92,255,1), rgba(0,212,255,1));
+      box-shadow: 0 16px 45px rgba(124,92,255,.22);
+    }
 
-    <!-- HERO -->
-    <section class="hero">
-      <h1>The Repair Scanner</h1>
-      <p class="subtitle">
-        Schäden erkennen. Entscheidungen beschleunigen.<br />
-        Für Eigentümer, Verwalter, Handwerk & Versicherungen.
+    .hero{padding:56px 0 28px}
+    .hero-grid{display:grid; grid-template-columns: 1.05fr .95fr; gap:26px; align-items:center}
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+    }
+    h1{margin:14px 0 10px; font-size:44px; line-height:1.06; letter-spacing:-.6px}
+    .sub{color:var(--muted); font-size:16px; line-height:1.55; margin:0 0 18px}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin:16px 0 18px}
+    .mini-proof{display:flex; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:12px}
+    .mini-proof div{display:flex; gap:8px; align-items:center}
+    .dot{width:8px; height:8px; border-radius:99px; background:rgba(255,255,255,.35)}
+    .dot.good{background:var(--good)}
+    .dot.warn{background:var(--warn)}
+    .dot.bad{background:var(--bad)}
+
+    .mock{
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .mock-top{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 16px; border-bottom:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted); font-size:12px;
+    }
+    .traffic{display:flex; gap:7px}
+    .traffic i{width:10px; height:10px; border-radius:50%}
+    .traffic i:nth-child(1){background:#ff5f57}
+    .traffic i:nth-child(2){background:#ffbd2e}
+    .traffic i:nth-child(3){background:#28c840}
+    .mock-body{padding:18px}
+    .phone{
+      width:100%;
+      aspect-ratio: 16/11;
+      border-radius:18px;
+      background:
+        radial-gradient(340px 240px at 20% 20%, rgba(124,92,255,.25), transparent 60%),
+        radial-gradient(380px 260px at 80% 30%, rgba(0,212,255,.18), transparent 55%),
+        rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      position:relative;
+      overflow:hidden;
+    }
+    .ui-header{
+      position:absolute; left:16px; right:16px; top:14px;
+      display:flex; justify-content:space-between; align-items:center;
+      color:rgba(255,255,255,.85); font-size:12px;
+    }
+    .pill{
+      padding:7px 10px; border-radius:999px;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(6px);
+      color:rgba(255,255,255,.85)
+    }
+    .scan-card{
+      position:absolute; left:16px; right:16px; top:56px;
+      border-radius:18px;
+      background: rgba(0,0,0,.20);
+      border:1px solid rgba(255,255,255,.12);
+      padding:14px;
+    }
+    .scan-grid{display:grid; grid-template-columns: 1fr .95fr; gap:12px; align-items:stretch}
+    .photo{
+      border-radius:14px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03)),
+        radial-gradient(140px 110px at 35% 40%, rgba(255,77,77,.22), transparent 65%),
+        rgba(255,255,255,.02);
+      border:1px solid rgba(255,255,255,.10);
+      min-height:130px;
+      position:relative;
+      overflow:hidden;
+    }
+    .photo:after{
+      content:"Schadensbild (Upload/Scan)";
+      position:absolute; left:12px; bottom:10px; font-size:11px;
+      color:rgba(255,255,255,.70);
+      background: rgba(0,0,0,.28);
+      border:1px solid rgba(255,255,255,.10);
+      padding:6px 9px; border-radius:999px;
+      backdrop-filter: blur(6px);
+    }
+    .result{
+      border-radius:14px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      padding:12px;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .ampel{display:flex; gap:8px; align-items:center}
+    .ampel b{font-size:12px}
+    .lights{display:flex; gap:6px; align-items:center}
+    .lights span{width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.20)}
+    .lights span.g{background:var(--good)}
+    .lights span.y{background:var(--warn)}
+    .lights span.r{background:var(--bad); box-shadow:0 0 0 4px rgba(255,77,77,.12)}
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{
+      font-size:11px; color:rgba(255,255,255,.78);
+      padding:7px 9px; border-radius:999px;
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap}
+    .cta-mini{
+      flex:1;
+      min-width:140px;
+      font-size:12px;
+      padding:10px 10px;
+      border-radius:12px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      text-align:center;
+      color:rgba(255,255,255,.86);
+    }
+
+    .section{padding:34px 0}
+    .section h2{margin:0 0 10px; font-size:28px; letter-spacing:-.3px}
+    .lead{margin:0 0 18px; color:var(--muted); line-height:1.6}
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:16px;
+    }
+    .card strong{display:block; margin:0 0 8px; font-size:14px}
+    .card p{margin:0; color:var(--muted); line-height:1.55; font-size:13px}
+    .kpis{display:grid; grid-template-columns: repeat(4, 1fr); gap:12px}
+    .kpi{
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      padding:14px;
+    }
+    .kpi b{font-size:18px; display:block}
+    .kpi span{font-size:12px; color:var(--muted)}
+    .steps{display:grid; grid-template-columns: 1fr 1fr 1fr; gap:14px}
+    .step{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:16px;
+    }
+    .num{
+      width:30px; height:30px; border-radius:11px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(124,92,255,.18);
+      border:1px solid rgba(124,92,255,.35);
+      font-weight:800;
+      margin-bottom:10px;
+    }
+    .modules{display:grid; grid-template-columns: 1.1fr .9fr; gap:14px; align-items:start}
+    .tag{
+      font-size:11px; color:rgba(255,255,255,.80);
+      padding:6px 9px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      display:inline-flex; margin-right:8px; margin-top:8px;
+    }
+    .faq details{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding:14px 16px;
+      margin-bottom:12px;
+    }
+    .faq summary{cursor:pointer; font-weight:700}
+    .faq p{color:var(--muted); line-height:1.6; margin:10px 0 0}
+    .footer{
+      padding:28px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .footer-grid{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
+    .pill2{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .note{font-size:12px; color:var(--muted); margin-top:8px}
+
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr; }
+      h1{font-size:36px}
+      .grid3,.kpis,.steps,.modules{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .brand{min-width:auto}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="brand-title">
+            <strong>The Repair Scanner</strong>
+            <span>powered by CURA</span>
+          </div>
+        </div>
+
+        <nav class="nav-links" aria-label="Navigation">
+          <a href="#produkt">Produkt</a>
+          <a href="#module">Module</a>
+          <a href="#pilot">Pilot</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn" href="#pilot">Pilot anfragen</a>
+          <a class="btn primary" href="#cta">Demo vormerken</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="badge">KI-Schadensanalyse mit Ampel-Priorisierung • Materialliste • Online-Beratung</div>
+          <h1>Schäden erkennen. Dringlichkeit verstehen. Sofort richtig handeln.</h1>
+          <p class="sub">
+            The Repair Scanner unterstützt Privatpersonen, Hausverwaltungen und Organisationen dabei,
+            Schäden schnell zu erfassen – inklusive <b>Ampel-Priorisierung</b> (grün/gelb/rot) und
+            den passenden nächsten Schritten: <b>DIY-Materialliste</b>, <b>Online-Beratung</b> oder
+            <b>Übergabe an Fachbetrieb/Versicherung</b>.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#cta">Kostenlose Pilot-Demo anfragen</a>
+            <a class="btn" href="#produkt">So funktioniert’s</a>
+          </div>
+
+          <div class="mini-proof">
+            <div><span class="dot good"></span> Für Pilotprojekte optimiert</div>
+            <div><span class="dot warn"></span> Datenschutz & klare Rollen</div>
+            <div><span class="dot bad"></span> Fokus auf sicherheitskritische Fälle</div>
+          </div>
+
+          <p class="note">
+            Hinweis: Phase-1 MVP liefert eine stabile Basis (Upload statt Live-Scan), damit Pilotpartner schnell testen können.
+          </p>
+        </div>
+
+        <div class="mock" aria-label="Produktvorschau">
+          <div class="mock-top">
+            <div class="traffic"><i></i><i></i><i></i></div>
+            <div>Vorschau • Web-MVP (Phase 1)</div>
+            <div class="pill">Upload/Scan</div>
+          </div>
+          <div class="mock-body">
+            <div class="phone">
+              <div class="ui-header">
+                <div class="pill">The Repair Scanner</div>
+                <div class="pill">Projekt: Objektadresse</div>
+              </div>
+
+              <div class="scan-card">
+                <div class="scan-grid">
+                  <div class="photo"></div>
+                  <div class="result">
+                    <div class="ampel">
+                      <div class="lights" aria-hidden="true">
+                        <span class="g"></span><span class="y"></span><span class="r"></span>
+                      </div>
+                      <b>Priorisierung: Rot (hoch)</b>
+                    </div>
+
+                    <div class="chips">
+                      <span class="chip">Klasse: Elektrik / Sicherheit</span>
+                      <span class="chip">Konfidenz: 0.86</span>
+                      <span class="chip">Empfehlung: Fachbetrieb</span>
+                    </div>
+
+                    <div class="cta-row">
+                      <div class="cta-mini">Online-Beratung</div>
+                      <div class="cta-mini">Fachbetrieb</div>
+                      <div class="cta-mini">Versicherung</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="note">In Phase 1: Klassifikation + Risiko-Ampel. In Phase 2: Detektion (Bounding Boxes) & Ausbau.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs / PROBLEM -->
+  <section class="section" id="produkt">
+    <div class="container">
+      <h2>Das Problem</h2>
+      <p class="lead">
+        Schäden werden zu spät erkannt, falsch priorisiert oder falsch adressiert. Das kostet Zeit, Geld – und im schlimmsten Fall Sicherheit.
+        Gleichzeitig fehlt Fachpersonal, und viele Fälle wären mit der richtigen Anleitung schnell lösbar.
       </p>
-      <a href="#kontakt" class="cta-button">Jetzt unverbindlich anfragen</a>
-    </section>
 
-    <!-- WAS IST DAS -->
-    <section class="section">
-      <h2>Was ist The Repair Scanner?</h2>
-      <p>
-        The Repair Scanner ist eine digitale Lösung zur strukturierten Erfassung,
-        Bewertung und Dokumentation von Schäden an Gebäuden und Bauteilen.
-        Schnell. Neutral. Verständlich.
+      <div class="kpis">
+        <div class="kpi"><b>1 Scan</b><span>statt lange Recherche</span></div>
+        <div class="kpi"><b>Ampel</b><span>klarer Handlungsdruck</span></div>
+        <div class="kpi"><b>3 Wege</b><span>DIY, Beratung, Übergabe</span></div>
+        <div class="kpi"><b>Dashboard</b><span>für Teams & Organisationen</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section">
+    <div class="container">
+      <h2>Die Lösung</h2>
+      <p class="lead">
+        The Repair Scanner verbindet KI-Analyse mit echter Handwerkserfahrung. Das Ergebnis ist ein schneller, nachvollziehbarer
+        Entscheidungsprozess – für Privatpersonen wie auch für professionelle Betreiber.
       </p>
-    </section>
 
-    <!-- ZIELGRUPPEN -->
-    <section class="section light">
-      <h2>Für wen ist das?</h2>
-      <ul class="grid">
-        <li><strong>Eigentümer & Investoren</strong><br />Fundierte Entscheidungsgrundlagen</li>
-        <li><strong>Hausverwaltungen</strong><br />Klare Schadensberichte ohne Fachchinesisch</li>
-        <li><strong>Handwerksbetriebe</strong><br />Saubere Vorabklärung & Angebotsbasis</li>
-        <li><strong>Versicherungen & Gutachter</strong><br />Strukturierte Dokumentation</li>
-      </ul>
-    </section>
+      <div class="grid3">
+        <div class="card">
+          <strong>KI-Analyse (Phase 1)</strong>
+          <p>Klassifikation von Schadensbildern und Ableitung einer Risiko-Ampel inkl. Konfidenzscore. Pilot-tauglich und erweiterbar.</p>
+        </div>
+        <div class="card">
+          <strong>Handlungsempfehlung</strong>
+          <p>DIY mit Materialliste (Baumarkt/Partner), Online-Beratung oder direkte Übergabe an Fachbetrieb/Versicherung – je nach Risiko.</p>
+        </div>
+        <div class="card">
+          <strong>Dashboard & Workflow</strong>
+          <p>Schadensmeldungen sammeln, doppelte Meldungen reduzieren, Aufgaben zuweisen und erledigte Fälle dokumentieren.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- VORTEILE -->
-    <section class="section">
-      <h2>Ihre Vorteile</h2>
-      <ul class="grid">
-        <li>Schnelle Schadenserfassung</li>
-        <li>Einheitliche Bewertung</li>
-        <li>Digitale Dokumentation</li>
-        <li>Besser vergleichbare Entscheidungen</li>
-      </ul>
-    </section>
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container">
+      <h2>So funktioniert es im Pilot</h2>
+      <p class="lead">
+        In Phase 1 starten wir bewusst schlank: Upload/Foto, Analyse, Ampel-Priorisierung, nächste Schritte. Alles Weitere folgt in Phase 2/3.
+      </p>
 
-    <!-- CTA -->
-    <section class="section cta">
-      <h2>Interesse?</h2>
-      <p>Fordern Sie eine Beispiel-Auswertung oder ein Erstgespräch an.</p>
-<a id="kontakt" href="mailto:info@therepairscanner.com" class="cta-button">
-        Kontakt aufnehmen
-      </a>
-    </section>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <strong>Bild erfassen</strong>
+          <p>Web-MVP: Upload oder Foto. Optional Objektadresse/Projektzuordnung (für Verwaltung/Organisationen).</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <strong>KI-Auswertung</strong>
+          <p>Schadensklasse + Konfidenz + Ampel (grün/gelb/rot). Fokus auf klare Entscheidung statt Perfektion.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <strong>Nächster Schritt</strong>
+          <p>DIY-Materialliste, Online-Beratung oder Übergabe an Fachbetrieb/Versicherung. Alles dokumentiert im Dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </main>
-</Layout>
+  <!-- MODULES -->
+  <section class="section" id="module">
+    <div class="container">
+      <h2>Module (Roadmap-fähig)</h2>
+      <p class="lead">
+        Du kannst die Module als “Erlösmodelle / Zielgruppen” verstehen. Für Phase 1 priorisieren wir die wenigen, die Pilotumsatz & Proof liefern.
+      </p>
 
-<style>
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-  font-family: system-ui, sans-serif;
-}
+      <div class="modules">
+        <div class="card">
+          <strong>Phase-1 Fokus (Pilot-tauglich)</strong>
+          <div class="tag">Modul A: Handwerksbetriebe (B2B Lizenz)</div>
+          <div class="tag">Modul B: Hausverwaltungen (B2B Lizenz)</div>
+          <div class="tag">Modul C: Early Pilot / Organisationen (Lizenz + Feedback)</div>
+          <p class="note">Weitere Module (Gemeinden/Katastrophenschutz, Versicherung, Online-Beratung, Baumarkt-Provision) werden in Phase 2/3 skaliert.</p>
+        </div>
 
-.hero {
-  text-align: center;
-  padding: 4rem 1rem;
-}
+        <div class="card">
+          <strong>Was kommt in Phase 2/3 dazu</strong>
+          <p>
+            Live-Scan, Detektion (Bounding Boxes), QR-Objektlogik, manuelle Meldungen mit Ampel-Verknüpfung, Dubletten-Erkennung,
+            Expertenplattform (Booking-ähnlich), erweiterte Norm-/Wissenslogik und Partner-Integrationen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
+  <!-- PILOT CTA -->
+  <section class="section" id="pilot">
+    <div class="container">
+      <div class="card">
+        <h2 style="margin:0 0 10px">Pilotpartner gesucht</h2>
+        <p class="lead" style="margin:0 0 14px">
+          Du bist Hausverwaltung, Organisation oder Handwerksbetrieb und möchtest 6–8 Wochen testen?
+          Du bekommst eine schlanke Pilotversion, klare Meilensteine und ein sauberes Feedback-Setup.
+        </p>
+        <div class="hero-actions" style="margin:0">
+          <a class="btn primary" href="#cta">Pilot-Call vereinbaren</a>
+          <a class="btn" href="#faq">FAQ ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-.subtitle {
-  font-size: 1.25rem;
-  color: #555;
-  margin-bottom: 2rem;
-}
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <p class="lead">Kurz und klar, wie du es später auch in Gesprächen nutzen kannst.</p>
 
-.section {
-  margin: 4rem 0;
-}
+      <details>
+        <summary>Warum startet Phase 1 ohne Live-Scan?</summary>
+        <p>Weil Upload/Foto im Web schneller pilotfähig ist und die KI-Grundlogik validiert. Live-Scan und Detektion folgen in Phase 2, sobald echte Pilotdaten vorliegen.</p>
+      </details>
 
-.section.light {
-  background: #f6f7f8;
-  padding: 3rem 2rem;
-  border-radius: 12px;
-}
+      <details>
+        <summary>Was ist der konkrete Output der KI in Phase 1?</summary>
+        <p>Schadensklasse, Ampel-Priorität (grün/gelb/rot) und Konfidenzscore. Das ist der stabile Kern, auf den später Material-, Norm- und Expertenlogik aufbauen.</p>
+      </details>
 
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
+      <details>
+        <summary>Kann man Schäden auch manuell im Dashboard erfassen?</summary>
+        <p>Ja. Manuelle Meldungen können ebenfalls eine Ampel-Priorisierung erhalten (regelbasiert oder später KI-gestützt). Das ist besonders relevant für Hausverwaltungen/Organisationen.</p>
+      </details>
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  list-style: none;
-  padding: 0;
-}
+      <details>
+        <summary>Ist das B2B- und öffentlichkeitsfähig?</summary>
+        <p>Ja. B2B bekommt Struktur, Rollen & Dashboard. Öffentlichkeit bekommt einfache Schritte, Vertrauen und klare Handlungsoptionen ohne Fachchinesisch.</p>
+      </details>
+    </div>
+  </section>
 
-.cta {
-  text-align: center;
-}
+  <!-- FINAL CTA -->
+  <section class="section" id="cta">
+    <div class="container">
+      <div class="card">
+        <h2 style="margin:0 0 10px">Demo / Pilot anfragen</h2>
+        <p class="lead" style="margin:0 0 14px">
+          Schick mir 2–3 Sätze (Zielgruppe, Land, Anwendungsfall). Ich melde mich mit einem konkreten Pilot-Vorschlag und Zeitplan.
+        </p>
 
-.cta-button {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.9rem 1.8rem;
-  background: #0ea5e9;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-}
-</style>
+        <form onsubmit="event.preventDefault(); alert('Danke! (Demo) – Verbinde dieses Formular später mit deinem Backend oder MailerLite.)');"
+              style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:10px;">
+          <input required placeholder="Name" style="padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.05); color:var(--text);" />
+          <input required placeholder="E-Mail" type="email" style="padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.05); color:var(--text);" />
+          <input placeholder="Organisation (optional)" style="grid-column: span 2; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.05); color:var(--text);" />
+          <textarea required placeholder="Kurz: Zielgruppe + Use Case + Land"
+                    style="grid-column: span 2; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.05); color:var(--text); min-height:110px;"></textarea>
+          <button class="btn primary" type="submit" style="grid-column: span 2; padding:12px 14px;">Anfrage senden</button>
+        </form>
+
+        <p class="note">Tipp: Wenn du willst, passe oben im Header die Farben/Logo an. Alles ist bewusst „Investor-clean“ gehalten.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="pill2">
+          <span style="opacity:.9; font-weight:700">The Repair Scanner</span>
+          <span style="opacity:.7">powered by CURA</span>
+        </div>
+        <div style="opacity:.85">© <span id="y"></span> • Pilot-MVP • DACH & EU</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
