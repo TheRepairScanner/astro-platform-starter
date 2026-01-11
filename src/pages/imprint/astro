@@ -1,1 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
 
+<Layout title="Imprint">
+  <section class="max-w-3xl mx-auto py-16 px-6">
+    <h1 class="text-3xl font-bold mb-6">Imprint</h1>
+
+    <p class="mb-4">
+      <strong>The Repair Scanner by Aron Bienge</strong><br />
+      Sole proprietorship
+    </p>
+
+    <p class="mb-4">
+      Responsible for content according to applicable law:<br />
+      <strong>Aron Bienge</strong>
+    </p>
+
+    <p class="mb-4">
+      Address:<br />
+      Rorschacherstrasse 46<br />
+      9000 St. Gallen<br />
+      Switzerland
+    </p>
+
+    <p class="mb-4">
+      Email:<br />
+<a href="mailto:contact@the-repair-scanner.com" class="underline">
+contact@the-repair-scanner.com
+      </a>
+    </p>
+
+    <p class="text-sm opacity-80 mt-8">
+      The Repair Scanner is an early-stage digital product and pilot platform.
+      The content of this website is provided for informational purposes only
+      and does not constitute professional, legal, or technical advice.
+    </p>
+  </section>
+</Layout>
