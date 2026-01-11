@@ -732,19 +732,42 @@ import Layout from '../layouts/Layout.astro';
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero__grid{ grid-template-columns: 1fr; }
-      h1{ font-size:40px; }
-      .mini-metrics{ grid-template-columns: repeat(2, 1fr); }
-      .cards{ grid-template-columns: repeat(2, 1fr); }
-      .grid3{ grid-template-columns: 1fr; }
-      .steps{ grid-template-columns: 1fr; }
-      .cta{ grid-template-columns: 1fr; }
-      .nav__center{ display:none; }
-    }
+  .hero__grid{ grid-template-columns: 1fr; }
+  h1{ font-size:38px; }
+  .nav{ flex-wrap:wrap; }
+  .nav__right{ width:100%; display:flex; gap:10px; justify-content:flex-start; }
+  .mini-metrics{ grid-template-columns: repeat(2, 1fr); }
+  .cards{ grid-template-columns: repeat(2, 1fr); }
+  .grid3{ grid-template-columns: 1fr; }
+  .steps{ grid-template-columns: 1fr; }
+  .cta{ grid-template-columns: 1fr; }
+  .nav__center{ display:none; }
 
-    @media (max-width: 520px){
-      .cards{ grid-template-columns: 1fr; }
-      h1{ font-size:34px; }
-    }
+  /* Fenster im Hero: mehr Platz & sauberer Stack */
+  .window__body{ grid-template-columns: 1fr; }
+  .window__placeholder{ height:240px; }
+}
+
+@media (max-width: 520px){
+  h1{ font-size:32px; }
+  .lead{ font-size:15px; }
+  .pill{ font-size:11px; }
+  .hero__cta{ gap:10px; }
+
+  /* Buttons etwas größer klickbar */
+  .btn{ padding:12px 14px; font-size:14px; }
+
+  /* Karten untereinander */
+  .cards{ grid-template-columns: 1fr; }
+  .imgcard{ min-height:240px; }
+
+  /* Navigation-Logo größer und sauber */
+  .logo{ height:40px; }
+
+  /* Container enger, damit es nicht gequetscht wirkt */
+  .container{ width:calc(100% - 28px); }
+  .nav{ width:calc(100% - 28px); }
+  .hero{ width:calc(100% - 28px); }
+}
   </style>
 </Layout>
