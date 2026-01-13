@@ -763,16 +763,10 @@ import Layout from '../layouts/Layout.astro';
   .window__body{ grid-template-columns: 1fr; }
   .window__placeholder{ height:240px; }
 }
-.logo_wrap{
-  display: inline-flex;
-  padding: 10px 14px;
-  border-radius: 14px;
-  background: rgba(10, 20, 35, 0.35);
-  -webkit-backdrop-filter: blur(4px);
-}
 
 .logo{
-  filter: drop-shadow(0 2px 6px rgba(76, 201, 255, 0.12));
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5))
+          drop-shadow(0 0 6px rgba(0,0,0,0.35));
 }
 
 @media (max-width: 520px){
@@ -796,8 +790,8 @@ import Layout from '../layouts/Layout.astro';
   object-fit: contain;
 }
 .logo_wrap{
-  padding: 8px 10px;
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
 }
 
   /* Container enger, damit es nicht gequetscht wirkt */
