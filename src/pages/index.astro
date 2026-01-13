@@ -4,30 +4,28 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="The Repair Scanner – Schäden erkennen. Dringlichkeit verstehen. Sofort richtig handeln.">
   <main class="page">
-    <!-- TOP NAV / HERO -->
-    <header class="nav">
-      <div class="nav__left">
-        <!-- WICHTIG: kein Zeilenumbruch im src -->
+   <!-- TOP NAV / HERO -->
+<div class="nav-bg">
+  <header class="nav">
+    <div class="nav__left">
       <div class="logo_wrap">
-        <img
-          class="logo"
-          src="/images/the-repair-scanner-logo-transparent-2x.png"
-          alt="The Repair Scanner – powered by CURA"
-        />
+        <img class="logo" src="/images/the-repair-scanner-logo-transparent-2x.png" alt="The Repair Scanner – powered by CURA" />
       </div>
+    </div>
 
-      <nav class="nav__center">
-        <a href="#produkt">Produkt</a>
-        <a href="#vorteile">Vorteile</a>
-        <a href="#pilot">Pilot</a>
-        <a href="#faq">FAQ</a>
-      </nav>
+    <nav class="nav__center">
+      <a href="#produkt">Produkt</a>
+      <a href="#vorteile">Vorteile</a>
+      <a href="#pilot">Pilot</a>
+      <a href="#faq">FAQ</a>
+    </nav>
 
-      <div class="nav__right">
-        <a class="btn btn--ghost" href="#pilot">Pilotprojekt anfragen</a>
-        <a class="btn btn--primary" href="#pilot">Demo vormerken</a>
-      </div>
-    </header>
+    <div class="nav__right">
+      <a class="btn btn--ghost" href="#pilot">Pilotprojekt anfragen</a>
+      <a class="btn btn--primary" href="#pilot">Demo vormerken</a>
+    </div>
+  </header>
+</div>
 
     <section class="hero" id="produkt">
       <div class="hero__grid">
@@ -361,6 +359,32 @@ import Layout from '../layouts/Layout.astro';
       width:min(1100px, calc(100% - 40px));
       margin:0 auto;
     }
+
+/* NAV BACKGROUND STRIP */
+.nav-bg{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+  padding: 6px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.14),
+      rgba(255,255,255,0.06)
+    );
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 6px 18px rgba(76,201,255,0.08);
+}
+
 
     /* NAV */
     .nav{
