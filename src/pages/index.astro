@@ -334,8 +334,8 @@ import Layout from '../layouts/Layout.astro';
 
   <style>
     :root{
-      --bg0:#0b1022;
-      --bg1:#121a3a;
+      --bg0:#101833;
+      --bg1:#182553;
       --panel:rgba(255,255,255,.08);
       --panel2:rgba(255,255,255,.10);
       --stroke:rgba(255,255,255,.14);
@@ -372,7 +372,7 @@ import Layout from '../layouts/Layout.astro';
       gap:18px;
     }
 
-    .logo{ height:170px; width:auto; display:block; } /* ggf. 38–48px */
+    .logo{ max-height:170px; width:auto; height: auto; display:block; object-fit: contain;  }
 
     .nav__center{ display:flex; gap:18px; }
     .nav__center a{
@@ -763,6 +763,10 @@ import Layout from '../layouts/Layout.astro';
   .window__placeholder{ height:240px; }
 }
 
+.logo{
+  filter: drop-shadow(0 4px 14px rgba(76, 201, 255, 0.35));
+}
+
 @media (max-width: 520px){
   h1{ font-size:32px; }
   .lead{ font-size:15px; }
@@ -777,7 +781,13 @@ import Layout from '../layouts/Layout.astro';
   .imgcard{ min-height:240px; }
 
   /* Navigation-Logo größer und sauber */
-  .logo{ height:180px; }
+  .logo{
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 
   /* Container enger, damit es nicht gequetscht wirkt */
   .container{ width:calc(100% - 28px); }
