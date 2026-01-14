@@ -33,15 +33,30 @@ import Layout from '../layouts/Layout.astro';
           <div class="pill">KI-Schadensanalyse • Ampel-Priorisierung • Materialliste • Online-Beratung</div>
 
           <h1>
-            Schäden erkennen.<br />
-            Dringlichkeit verstehen.<br />
-            Sofort richtig handeln.
+            KI-gestüzte Schadensanalyse für 
+          Gebäude<br />
+            Schäden erkennen, priorisieren und fundiert entscheiden.
           </h1>
 
+          <h2>
+            Modulare Plattform für Hausverwaltungen, 
+            Handwerksbetriebe und Organisationen - 
+            startend mit Pilot-Modulen 2026
+          </h2>
+
           <p class="lead">
-            The Repair Scanner unterstützt Privatpersonen, Hausverwaltungen und Organisationen dabei, Schäden an Gebäude anhand von Fotos 
-            strukturiert zu erfassen – inklusive Ampel-Priorisierung (grün/gelb/rot) und den passenden nächsten
-            Schritten: Materialliste, Beratung oder Übergabe an einen Fachbetrieb.
+            The Repair Scanner ist eine KI-gestütze, modulare Plattform
+            zur Analyse und Bewertung von Gebäudeschäden. Die Startmodule (Pilotbetrieb ab 2026) unterstützen 
+            die strukturierte Schadenserfassung, eine Ampel-Priorisierung und die Abteilung konkreter Maßnahmen - 
+            als Basis für weitere Module und Workflows.
+          </p>
+
+          <p class="services">
+            Ergebnisorientierte Auswertung mit klaren
+          nächsten Schritten:
+            <strong>Materiallisten</strong>,
+            <strong>fachliche Beratung</strong> oder
+            <strong>strukturierte Übergabe an einen passenden Fachbetrieb</strong>.
           </p>
 
           <div class="hero__cta">
@@ -52,7 +67,7 @@ import Layout from '../layouts/Layout.astro';
           <ul class="checks">
             <li>Für Pilotprojekte optimiert</li>
             <li>Datenschutz & klare Rollen</li>
-            <li>Fokus auf sicherheitskritische Fälle</li>
+            <li>Klare nächste Schritte statt offener Schadensbewertung</li>
           </ul>
 
           <p class="note">
@@ -361,7 +376,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
 /* NAV BACKGROUND STRIP */
-.nav_bg{
+.nav-bg{
   width: 100%;
   padding: 6px 0;
 
@@ -417,7 +432,12 @@ import Layout from '../layouts/Layout.astro';
 
     .logo{ max-height:170px; width:auto; height: auto; display:block; object-fit: contain;  }
 
-    .nav__center a:hover{ color:var(--text); }
+    .nav__center a{ 
+      color:rgba(255,255,255,.72);
+      text-decoration:none;
+      font-weight:800;
+      font-size:14px;
+}
 
     /* Buttons */
     .btn{
