@@ -1,53 +1,58 @@
----
-import '../../src/styles/globals.css';
-import '@fontsource-variable/inter/wght.css';
-import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
-import Footer from '../components/Footer.astro';
+    ---
+    import '../../src/styles/globals.css';
+    import '@fontsource-variable/inter/wght.css';
+    import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 
-interface Props {
-    title: string;
-}
+    interface Props {
+      title?: string;
+      description?: string;
+    }
 
-const { 
-    title = "Automatisierte Schadensanalyse mit KI The Repair Scanner",
-    description = "KI-gestützte Schadensanalyse für Reparatur, Handwerk und Industrie."
-} = Astro.props;
----
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <title>{title}</title>
+    const {
+      title = "Automatisierte Schadensanalyse mit KI – The Repair Scanner",
+      description = "KI-gestützte Schadensanalyse mit Ampel-Logik für Gebäude, Handwerk, Hausverwaltungen und Organisationen."
+    } = Astro.props as Props;
+    ---
+    <!DOCTYPE html>
+    <html lang="de">
+      <head>
+        <meta charset="UTF-8" />
+        <title>{title}</title>
 
-  <!-- SEO BASIS -->
-  <meta name="description" content="The Repair Scanner hilft dabei, Gebäudeschäden frühzeitig zu erkennen, richtig zu priorisieren und fundierte Entscheidungen zu treffen – für Eigentümer, Hausverwaltungen und Handwerksbetriebe." />
-  <meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://www.the-repair-scanner.com/" />
+        <!-- SEO BASIS -->
+        <meta name="description" content={description} />
+        <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.the-repair-scanner.com/" />
 
-  <!-- Open Graph (Google, WhatsApp, LinkedIn) -->
-  <meta property="og:title" content="Automatisierte Schadensanalyse mit KI The Repair Scanner" />
-  <meta property="og:description" content="KI-gestützte Schadensanalyse für Reparatur, Handwerk und Industrie." />
-  <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.the-repair-scanner.com/" />
-<meta property="og:image" content="https://www.the-repair-scanner.com/images/og-preview.png" />
+        <!-- Open Graph (Google, WhatsApp, LinkedIn) -->
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.the-repair-scanner.com/" />
+    <meta property="og:image" content="https://www.the-repair-scanner.com/images/og-preview.png" />
 
-  <!-- Twitter -->
-  <meta name="twitter:title" content="Automatisierte Schadensanalyse mit KI The Repair Scanner" />
-<meta name="twitter:title" content="The Repair Scanner – Schäden erkennen & priorisieren" />
-<meta name="twitter:description" content="KI-gestützte Schadensanalyse mit Ampel-Logik für Gebäude." />
-<meta name="twitter:image" content="https://www.the-repair-scanner.com/images/og-preview.png" />
-  <!-- TECH -->
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="generator" content={Astro.generator} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
-</head>
-    <body class="antialiased text-white bg-complementary">
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://www.the-repair-scanner.com/images/og-preview.png" />
+
+        <!-- TECH -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
+      </head>
+
+      <body class="antialiased text-white bg-complementary">
         <div class="flex flex-col min-h-screen px-6 bg-noise sm:px-12">
-            <div class="flex flex-col w-full max-w-5xl mx-auto grow">
-                <main class="grow"><slot /></main>
-                <Footer />
-            </div>
+          <div class="flex flex-col w-full max-w-5xl mx-auto grow">
+            <main class="grow">
+              <slot />
+            </main>
+            <!-- Footer bewusst entfernt: Footer nur dort einbauen, wo du ihn wirklich brauchst -->
+          </div>
         </div>
-    </body>
-</html>
+      </body>
+    </html>
+    ```0
